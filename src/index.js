@@ -231,6 +231,7 @@ class Firis {
    * 文字コンテナを作成
    * すでに作成済みの場合は初期化して再作成
    * @param {*} inputStr 
+   * @returns true:成功 false:失敗
    */
   createStringContainer(inputStr){
 
@@ -246,7 +247,7 @@ class Firis {
       
       if(instruction == undefined){ //見つからなかった場合
         console.error("指定された文字列に対応するローマ字が見つかりませんでした。")
-        return
+        return false
       }
 
       let stringCell = new StringCell(instruction.Kana,instruction.Romaji,instruction.Type)
@@ -325,6 +326,8 @@ class Firis {
       stringContainer.addStringCell(stringCell)
     }
     this.StringContainerList.push(stringContainer)
+
+    return true
   }
   /**
    * タイピングのメイン処理関数
@@ -552,8 +555,8 @@ class Firis {
   }
 
   /**
-   * 文字コンテナからローマ字を取得
-   * @returns 
+   * 文字コンテナからローマ字の文字リストを取得
+   * @returns 文字リスト　例：["a", "i", "u", "e", "o"]
    */
   getRomaji(){
     if (!this.isAvailable()) return ""
@@ -562,7 +565,7 @@ class Firis {
 
   /**
    * 文字コンテナからかな文字取得
-   * @returns 
+   * @returns 文字リスト　例：["あ", "い", "う", "え", "お"]
    */
   getKana(){
     if (!this.isAvailable()) return ""
@@ -571,7 +574,7 @@ class Firis {
 
   /**
    * 文字コンテナから入力済みのローマ字を取得
-   * @returns 
+   * @returns 文字リスト　例：["a", "i", "u"]
    */
   getEnteredRomaji() {
     if (!this.isAvailable()) return ""
@@ -583,7 +586,7 @@ class Firis {
 
   /**
    * 文字コンテナから入力済みのかな文字を取得
-   * @returns 
+   * @returns 文字リスト　例：["あ", "い", "う"]
    */
   getEnteredKana() {
     if (!this.isAvailable()) return ""

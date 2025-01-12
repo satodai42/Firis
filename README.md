@@ -28,8 +28,8 @@ yarn add
 const firis = new Firis()
 firis.createStringContainer("あいうえおかきくけこ") //入力してほしい文字列をセット
 
-console.log(firis.getRomaji()) //aiueokakikukeko
-console.log(firis.getKana()) //あいうえおかきくけこ
+console.log(firis.getRomaji()) //["a", "i", "u", "e", "o", "ka", "ki", "ku", "ke", "ko"]
+console.log(firis.getKana()) //["あ", "い", "う", "え", "お", "か", "き", "く", "け", "こ"]
 
 firis.inputKey('a') //実際はキーボード入力を取得して入力文字をセット
 
