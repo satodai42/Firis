@@ -1,9 +1,12 @@
+import path from 'path';
+import { fileURLToPath } from 'url';
 
-//パス名の生成
-var path = require("path");
+// __dirname を ES6 モジュールで使用するための設定
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 //webpackの出力設定
-module.exports = {
+export default {
   //実行開始地点となるファイル
   entry: './src/index.js',
   //出力先

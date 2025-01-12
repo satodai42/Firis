@@ -1,5 +1,5 @@
 {
-  "name": "firis",
+  "name": "@satodai42/firis",
   "version": "0.1.0",
   "description": "Input support module for Japanese typing software",
   "keywords": [
@@ -17,18 +17,18 @@
     "type": "git",
     "url": "git+https://github.com/satodai42/Firis.git"
   },
-  "author": {
-    "name": "Daisuke Sato",
-    "email": "satodai42@gmail.com"
-  },
+  "license": "MIT",
+  "author": "Daisuke Sato <satodai42@gmail.com>",
   "main": "src/index.js",
+  "type": "module",
   "scripts": {
     "dev": "webpack --mode development && webpack-dev-server --mode development",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "test": "jest"
   },
-  "license": "MIT",
+  "dependencies": {    
+  },
   "devDependencies": {
     "@babel/core": "^7.26.0",
     "@babel/preset-env": "^7.26.0",
