@@ -1,24 +1,18 @@
-import path from 'path';
-import { fileURLToPath } from 'url';
 
-// __dirname を ES6 モジュールで使用するための設定
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+//パス名の生成
+var path = require("path");
 
 //webpackの出力設定
-export default {
+module.exports = {
   //実行開始地点となるファイル
-  entry: './src/index.js',
+  // entry: './src/index.js',
+  entry: './browser/entry.js',
   //出力先
   output: {
     //カレントパス/dist
     path: path.resolve(__dirname, "dist"),
     //出力ファイル名
     filename: "bundle.js",
-    library: {
-      type: 'module',
-    },
-
   },
   experiments: {
     outputModule: true,

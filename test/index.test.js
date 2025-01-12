@@ -1,5 +1,13 @@
 
-import Firis from '../dist/bundle.js'
+// テスト対象のファイルを読み込む
+const Firis = require('../src/index.js');
+
+if(!global.structuredClone){
+  global.structuredClone = function structuredClone(objectToClone) {
+    if (objectToClone === undefined) return undefined;
+    return JSON.parse(JSON.stringify(objectToClone));
+  }
+}
 
 test("Firis-Test01", () => {
   const firis = new Firis()

@@ -298,4 +298,4 @@ const instructionSet = [
 [" ",16,"_"]
 ]
 
-export {instructionSet}
+module.exports = {instructionSet}

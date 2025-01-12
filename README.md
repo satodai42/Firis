@@ -1,3 +1,6 @@
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+
 ## About
 
 - 日本語のタイピングソフト向けにローマ字入力補助を行います
@@ -11,20 +14,22 @@
 ### Browser
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/"></script>
+<script src="https://cdn.jsdelivr.net/gh/satodai42/Firis/dist/bundle.js"></script>
 ```
 
 ### Node.js
 ##### Install package
 ```sh
-npm install 
+npm install @satodai42/firis
 ```
 ```sh
-yarn add 
+yarn add @satodai42/firis
 ```
 
 ##### Example
 ```javascript
+import Firis from 'https://cdn.jsdelivr.net/gh/satodai42/Firis/dist/bundle.js';
+
 const firis = new Firis()
 firis.createStringContainer("あいうえおかきくけこ") //入力してほしい文字列をセット
 

@@ -4,14 +4,28 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Firis</title>   
 
+  <!-- <script type="module" src="https://cdn.jsdelivr.net/gh/satodai42/Firis/dist/bundle.js"></script> -->
+  <script src="./dist/bundle.js"></script>
+
 </head>
 <body>
   <h1>FlexIble Romaji Input Support module</h1>
-    
-  <script type="module">  
-    
-    import Firis from './dist/bundle.js'
+  <div>
+    <button id="resetButton">リセット</button>
+    <br><br>
 
+    <span>漢字：</span><span id="inputTargetKanji"></span>
+    <br>
+    <span>かな：</span><span id="inputTargetKana"  ></span>
+    <br>
+    <span>ローマ字：</span><span id="inputTargetRomaji"  ></span>
+    
+    <p id="enteredKana"></p>
+    <span id="enteredRomaji"></span><span id="inputWord" style="color:red"></span>
+  </div>
+
+  <script>
+ 
     const firis = new Firis()
 
     var inputString = ""
@@ -107,20 +121,5 @@
 
 
   </script>
-
-  <div>
-    <button id="resetButton">リセット</button>
-    <br><br>
-
-    <span>漢字：</span><span id="inputTargetKanji"></span>
-    <br>
-    <span>かな：</span><span id="inputTargetKana"  ></span>
-    <br>
-    <span>ローマ字：</span><span id="inputTargetRomaji"  ></span>
-    
-    <p id="enteredKana"></p>
-    <span id="enteredRomaji"></span><span id="inputWord" style="color:red"></span>
-  </div>
-
 </body>
 </html>

@@ -1,5 +1,5 @@
 
-import { instructionSet } from "./instructionSet.js";
+const { instructionSet } = require("./instructionSet.js");
 
 const RESULT = Object.freeze({
   I_OK: 0,
@@ -627,4 +627,4 @@ class Firis {
 
 }
 
-export default Firis
+module.exports = Firis
