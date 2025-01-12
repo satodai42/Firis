@@ -1,0 +1,126 @@
+<html lang="js">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Firis</title>   
+
+</head>
+<body>
+  <h1>FlexIble Romaji Input Support module</h1>
+    
+  <script type="module">  
+    
+    import Firis from './dist/bundle.js'
+
+    const firis = new Firis()
+
+    var inputString = ""
+    var enteredString = ""   
+    var currentlyListNum = 0
+
+    var inputList = [
+      // {Kanji:"",Kana:""},
+      {Kanji:"",Kana:"あいうえお"},
+      {Kanji:"",Kana:"ちゃちゅっちぇっちょ"},
+      {Kanji:"懦弱な匹夫にこの疾風怒涛の白刃の煌めきを捌けるのか",Kana:"だじゃくなひっぷにこのしっぷうどとうのしらはのきらめきをさばけるのか"},
+
+      // {Kanji:"",Kana:"っあっちゃっふぁっんっ1っっぅあ"},
+      // {Kanji:"",Kana:"えっふぁっぅろ"},
+      // {Kanji:"",Kana:"あんどんなっんあ"},
+      // {Kanji:"",Kana:"あっちい"},
+      // {Kanji:"",Kana:"あっせいっ"},
+      // {Kanji:"",Kana:"しかっちゃ"},
+      // {Kanji:"",Kana:"どっやおうおう"},
+      // {Kanji:"",Kana:"えっっっふぁどっかっぅろ"},
+      // {Kanji:"",Kana:"えっっ1どっかっAろ"},
+      // {Kanji:"",Kana:"あんどんなっんあ"},
+      // {Kanji:"",Kana:"つぁつぃ"},
+    ]
+
+    let str = getInOrderString(inputList)
+    firis.createStringContainer(str.Kana)
+    
+    document.getElementById("inputTargetKanji").textContent = str.Kanji
+    document.getElementById("inputTargetRomaji").textContent = firis.getRomaji()
+    document.getElementById("inputTargetKana").textContent = firis.getKana()
+    
+    document.addEventListener("keypress", keypress_ivent)
+    document.getElementById('resetButton').addEventListener("click", clearString)
+
+
+    function getRandomString(myArray){
+      const randomIndex = Math.floor(Math.random() * myArray.length)
+      let ret = myArray[randomIndex]
+      if (ret.Kanji == "") ret.Kanji = ret.Kana
+      return ret
+    }
+    function getInOrderString(myArray){
+      if(currentlyListNum+1 > myArray.length){
+        currentlyListNum = 0
+      }
+      let ret = myArray[currentlyListNum]
+      currentlyListNum += 1
+      if (ret.Kanji == "") ret.Kanji = ret.Kana
+      return ret
+    }
+
+    function keypress_ivent(e){
+
+      var r = firis.inputKey(e.key)
+
+      document.getElementById("inputWord").textContent = ""
+      if(r == 0){
+        document.getElementById("enteredRomaji").style = ""
+      } else if (r == 1){
+        // document.getElementById("enteredRomaji").style = "color:red"
+        document.getElementById("inputWord").textContent = e.key
+      } else if (r == 2){
+        document.getElementById("enteredRomaji").style = "color:blue"
+        
+        let str = getInOrderString(inputList)
+        firis.createStringContainer(str.Kana)
+        document.getElementById("inputTargetKanji").textContent = str.Kanji
+      }
+
+      document.getElementById("inputTargetKana").textContent = firis.getKana()
+      document.getElementById("inputTargetRomaji").textContent = firis.getRomaji()
+      document.getElementById("enteredRomaji").textContent = firis.getEnteredRomaji()
+      document.getElementById("enteredKana").textContent = firis.getEnteredKana()
+
+      return false
+    }
+
+    function clearString(){
+
+      firis.clearStringContainer()
+
+      let str = getRandomString(inputList)
+      firis.createStringContainer(str.Kana)
+
+      document.getElementById("inputTargetKanji").textContent = str.Kanji
+      document.getElementById("inputTargetRomaji").textContent = firis.getRomaji()
+      document.getElementById("inputTargetKana").textContent = firis.getKana()
+      document.getElementById("enteredRomaji").textContent = firis.getEnteredRomaji()
+      document.getElementById("enteredKana").textContent = firis.getEnteredKana()
+    }
+
+
+
+  </script>
+
+  <div>
+    <button id="resetButton">リセット</button>
+    <br><br>
+
+    <span>漢字：</span><span id="inputTargetKanji"></span>
+    <br>
+    <span>かな：</span><span id="inputTargetKana"  ></span>
+    <br>
+    <span>ローマ字：</span><span id="inputTargetRomaji"  ></span>
+    
+    <p id="enteredKana"></p>
+    <span id="enteredRomaji"></span><span id="inputWord" style="color:red"></span>
+  </div>
+
+</body>
+</html>

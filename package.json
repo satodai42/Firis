@@ -1,0 +1,35 @@
+{
+  "name": "firis",
+  "version": "0.1.0",
+  "description": "Input support module for Japanese typing software",
+  "keywords": [
+    "romaji",
+    "kana",
+    "typing",
+    "japanese",
+    "ローマ字",
+    "かな"
+  ],
+  "bugs": {
+    "email": "satodai42@gmail.com"
+  },
+  "repository": "",
+  "author": {
+    "name": "Daisuke Sato",
+    "email": "satodai42@gmail.com"
+  },
+  "main": "src/index.js",
+  "scripts": {
+    "dev": "webpack --mode development && webpack-dev-server --mode development",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@eslint/js": "^9.18.0",
+    "eslint": "^9.18.0",
+    "globals": "^15.14.0",
+    "webpack": "^5.97.1",
+    "webpack-cli": "^6.0.1"
+  }
+}
