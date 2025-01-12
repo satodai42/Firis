@@ -28,7 +28,6 @@ yarn add @satodai42/firis
 
 ##### Example
 ```javascript
-import Firis from 'https://cdn.jsdelivr.net/gh/satodai42/Firis/dist/bundle.js';
 
 const firis = new Firis()
 firis.createStringContainer("あいうえおかきくけこ") //入力してほしい文字列をセット
