@@ -1,6 +1,6 @@
 {
   "name": "@satodai42/firis",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Input support module for Japanese typing software",
   "keywords": [
     "romaji",
